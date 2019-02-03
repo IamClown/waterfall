@@ -1,0 +1,45 @@
+.container {
+    width: 900px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.container .item {
+    width: 260px;
+    float: left;
+    margin: 10px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.item p {
+    padding-top: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #888;
+}
+
+.col {
+    float: left;
+    width: 300px;
+}
+
+img {
+    cursor: pointer;
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+img:hover {
+    transform: translate(0, -10px);
+    -webkit-transform: translate(0, -10px);
+    -moz-transform: translate(0, -10px);
+    -o-transform: translate(0, -10px);
+    -ms-transform: translate(0, -10px);
+    -webkit-box-shadow: 0 5px 15px #e5e5e5;
+    -moz-box-shadow: 0 5px 15px #e5e5e5;
+}

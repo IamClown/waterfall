@@ -1,0 +1,34 @@
+第一步：构建HTML结构
+       1、分成三列
+       2、每一列下面都是图片（img）和描述（p）
+
+第二步：进行方法的封装（高级单例模式）
+        1、创建一个Utils的自定义工具类
+        2、我们将new对象的这个过程写成一个方法（utils()执行就相当于创建了一个Utils实例）
+        3、原型扩展（更改原型的空间地址），设置一些共有属性（供实例调用）
+            1>getCss(attr)
+                -通过getComputedStyle(ele)[attr]（谷歌）或者是ele.currentStyle[attr]（IE）来获取指定元素的指定属性的属性值
+            2>setCss(attr,value)
+                -通过typeof检测value的值，并且通过正则检测attr，如果是数值就加上"px"，反之直接通过ele.style[attr]=value给指定的元素的指定属性赋值。
+            3>fadeIn()淡入淡出效果
+                -设置opacity的值，通过定时器让其自增，然后在赋值给指定元素的opacity属性，当opacity的值>1的时候，清除定时器
+            4>offset()
+                -获取指定元素距离body的偏移量(ele.offsetLeft/ele.offsetTop,ele.offsetParent),循环判断父级参照物是否是body
+            5>win()
+                -获取可视化区域的宽/高或是整个文档的宽高
+            6>ajax()
+                -通过ajax的四个步骤获取json数据并转化成JSON对象，返回
+        4、给window添加一个utils的属性，属性值是utils函数
+
+第三步：渲染数据
+        1、通过utils.ajax()获取数据并接收其返回值
+        2、获取html容器（document.getElementsByClassName("col")）
+        3、将获取的容器转成数组并循环，获取对应容器的真实高度，调用sort()方法，将其按照从小到大的顺序排列
+        4、因为我们要把获取的json数据一个一个的追加到高度最小的容器后面（不是覆盖），先利用es6的模板字符串进行字符串拼接，然后我们在这创建了一个空的div对其进行预加载处理，然后把这个新的div追加到高度最小的容器后面（document.getElementsByClassName("col")[0]）
+
+第四步：进行分页加载
+        1、获取整个文档的高度，然后和可视化窗口+滚动条纵向滚动的高度进行比较，如果前者大我们就在调用ajax()和bind_html();
+
+第五步：多张图片的懒加载
+
+
